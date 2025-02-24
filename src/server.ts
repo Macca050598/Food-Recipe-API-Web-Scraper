@@ -25,4 +25,21 @@ const cache = apicache.middleware('5 minutes');
 // Apply middleware to routes
 app.use('/api/recipes', limiter);
 app.use('/api/recipes', cache);
-app.use('/api/recipes', recipeRoutes); 
+app.use('/api/recipes', recipeRoutes);
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
+// Start server
+connectDatabase()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Failed to connect to database:', error);
+    process.exit(1);
+  }); 
