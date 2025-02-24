@@ -1,0 +1,103 @@
+mkdir recipe-api
+cd recipe-api
+npm init -y
+npm install express mongoose dotenv cors helmet winston
+npm install -D @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint ts-node-dev
+npm install axios cheerio puppeteer
+npm install --save-dev @types/cheerio
+
+# Install TypeScript globally if you haven't already
+npm install -g typescript
+
+# Install ts-node globally
+npm install -g ts-node
+
+# OR as a dev dependency (recommended)
+npm install --save-dev ts-node
+
+# Install all dependencies
+npm install
+
+# Compile TypeScript to JavaScript
+tsc
+
+# Start the server
+npm start
+
+# Run the server in development mode
+npm run dev
+
+curl -X POST http://localhost:3000/api/recipes \
+-H "Content-Type: application/json" \
+-d '{
+  "title": "Test Recipe",
+  "description": "A test recipe",
+  "ingredients": [
+    {"item": "test ingredient", "amount": 1, "unit": "cup"}
+  ],
+  "instructions": ["Step 1", "Step 2"],
+  "preparationTime": 10,
+  "cookingTime": 20,
+  "servings": 4,
+  "difficulty": "easy",
+  "cuisine": "Test",
+  "dietaryInfo": {
+    "vegetarian": true,
+    "vegan": false,
+    "glutenFree": true,
+    "dairyFree": false
+  },
+  "nutritionalInfo": {
+    "calories": 200,
+    "protein": 10,
+    "carbohydrates": 20,
+    "fat": 5
+  },
+  "imageUrl": "https://example.com/image.jpg",
+  "sourceUrl": "https://example.com/recipe"
+}'
+
+curl http://localhost:3000/api/recipes
+
+# Install TypeScript type definitions
+npm install --save-dev @types/node @types/express @types/cors @types/mongoose
+
+# Update package.json dependencies 
+
+# Remove node_modules and reinstall
+rm -rf node_modules
+npm install
+
+# Then run the scraper
+npm run scrape
+
+# Create puppeteer cache directory with correct permissions
+sudo mkdir -p /Users/macca/.cache/puppeteer
+sudo chown -R macca:staff /Users/macca/.cache/puppeteer 
+
+# Install required type definitions
+npm install --save-dev @types/node @types/axios
+
+# Clean install with puppeteer skip download
+PUPPETEER_SKIP_DOWNLOAD=true npm install
+
+# Remove the current puppeteer installation
+npm uninstall puppeteer
+
+# Install puppeteer with Chromium
+PUPPETEER_SKIP_DOWNLOAD=false npm install puppeteer 
+
+# On macOS, try:
+sudo lsof -i :3000
+
+# OR
+ps aux | grep node
+
+# Kill the process (replace PID with the actual process ID)
+kill -9 PID
+
+# If that doesn't work, try:
+pkill -f node
+
+# Or the nuclear option (kills all Node processes):
+killall -9 node 
